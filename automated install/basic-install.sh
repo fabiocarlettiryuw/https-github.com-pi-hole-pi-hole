@@ -880,6 +880,11 @@ setDNS() {
             PIHOLE_DNS_1="8.8.8.8"
             PIHOLE_DNS_2="8.8.4.4"
             ;;
+        IBM)
+            echo "IBM DNS servers"
+            PIHOLE_DNS_1="9.9.9.9"
+            PIHOLE_DNS_2="9.0.0.0"
+            ;;     
         OpenDNS)
             echo "OpenDNS servers"
             PIHOLE_DNS_1="208.67.222.222"
