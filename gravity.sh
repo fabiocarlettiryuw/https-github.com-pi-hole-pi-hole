@@ -331,7 +331,7 @@ gravity_ParseFileIntoDomains() {
       }' "${source}" > "${destination}.exceptionsFile.tmp"
 
       # Remove exceptions
-      comm -23 "${destination}" <(sort "${destination}.exceptionsFile.tmp") > "${source}"
+      comm -23 <(sort "${destination}") <(sort "${destination}.exceptionsFile.tmp") > "${source}"
       mv "${source}" "${destination}"
     fi
 
@@ -449,7 +449,7 @@ gravity_Whitelist() {
   echo -ne "  ${INFO} ${str}..."
 
   # Print everything from preEventHorizon into whitelistMatter EXCEPT domains in $whitelistFile
-  comm -23 "${piholeDir}/${preEventHorizon}" <(sort "${whitelistFile}") > "${piholeDir}/${whitelistMatter}"
+  comm -23 <(sort "${piholeDir}/${preEventHorizon}") <(sort "${whitelistFile}") > "${piholeDir}/${whitelistMatter}"
 
   echo -e "${OVER}  ${INFO} ${str}"
 }
